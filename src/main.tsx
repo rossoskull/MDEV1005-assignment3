@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register';
+import Dashboard from './pages/dashboard/Dashboard';
 
 import 'antd/dist/reset.css';
 
@@ -12,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<p>This is the dashboard...</p>} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

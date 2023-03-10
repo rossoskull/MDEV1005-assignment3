@@ -1,40 +1,89 @@
 import * as S from '../../styles';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import { Link } from 'react-router-dom';
 import { FiUser } from 'react-icons/fi';
 import Icon from '@ant-design/icons';
+import useAuth from '../../services/auth';
+import { Navigate } from 'react-router-dom';
 
 const Register = () => {
+  const { isUserLoggedIn, createUser } = useAuth();
+  const [messageApi, messageContext] = message.useMessage();
+
+  const handleFormSubmit = async (values: {
+    name: string;
+    email: string;
+    password: string;
+  }) => {
+    try {
+      const { name, email, password } = values;
+
+      await createUser(name, email, password);
+    } catch (error) {
+      messageApi.error({
+        type: "success",
+        content: "Could not create your account, please try again later."
+      });
+    }
+  }
+
+  if (isUserLoggedIn) return <Navigate to="/dashboard" />;
+
   return (
     <S.FormContainer>
+      {messageContext}
       <S.FormCard>
         <S.RegularTitle>Register</S.RegularTitle>
         <Form
           name="basic"
           initialValues={{ remember: true }}
-          onFinish={() => { }}
-          onFinishFailed={() => { }}
+          onFinish={handleFormSubmit}
           autoComplete="off"
         >
           <Form.Item
             name="name"
-            rules={[{ required: true, message: 'Please enter your name!' }]}
+            hasFeedback
+            rules={[{ required: true, message: 'Please enter your name' }]}
           >
             <Input placeholder="Your name" />
           </Form.Item>
 
           <Form.Item
             name="email"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            hasFeedback
+            rules={[{ required: true, message: 'Please input your username' }]}
           >
             <Input placeholder="Your email address" />
           </Form.Item>
 
           <Form.Item
             name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
+            hasFeedback
+            rules={[{ required: true, message: 'Please input your password' }]}
           >
             <Input.Password placeholder="Your password" />
+          </Form.Item>
+
+          <Form.Item
+            name="confirm"
+            dependencies={['password']}
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: 'Please confirm your password',
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue('password') === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(new Error("Your passwords do not match"));
+                },
+              }),
+            ]}
+          >
+            <Input.Password placeholder="Confirm your password" />
           </Form.Item>
 
           <Form.Item>
