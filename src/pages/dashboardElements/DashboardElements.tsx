@@ -3,8 +3,9 @@ import BarrieWeather from "../dashboard/barrieWeather/BarrieWeather";
 import CatFacts from "../dashboard/catFacts/CatFacts";
 import CompoundInterestCalculator from "../dashboard/compoundInterestCalculator/CompoundInterestCalculator";
 import ProfileInformation from "../dashboard/profileInformation/ProfileInformation";
-import * as S from "../../styles";
 import UsersList from "../dashboard/usersList/UsersList";
+import Calendar from "../dashboard/calendar/Calendar";
+import * as S from "../../styles";
 
 const DashboardElements = () => {
   return (
@@ -30,6 +31,9 @@ const DashboardElements = () => {
           <p>This is a list of all registered users on this app:</p>
           <UsersList />
         </S.WidgetCard>
+      </Col>
+      <Col span={8}>
+        <Calendar />
       </Col>
     </Row>
   );
