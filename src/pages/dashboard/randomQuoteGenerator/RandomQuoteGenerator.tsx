@@ -8,10 +8,12 @@ const RandomQuoteGenerator = () => {
   const [quote, setQuote] = useState('');
   const [author, setAuthor] = useState('');
 
-  const getRandomColorNumber = () => {
-    return Math.floor(Math.random() * 1000 % 256);
-  }
-  const fetchPalette = async () => {
+  /**
+   * function to fetch a random quote from inspiration API
+   * this random quote is saved inside `quote` state variable
+   * the author name is saved inside `author` state variable
+   */
+  const fetchQuote = async () => {
     try {
 
       const response = await Axios.get('https://api.goprogram.ai/inspiration');
@@ -28,8 +30,11 @@ const RandomQuoteGenerator = () => {
     }
   }
 
+  /**
+   * This effect calls the method to fetch a quote on this widget's first render
+   */
   useEffect(() => {
-    fetchPalette();
+    fetchQuote();
   }, [])
 
   return (

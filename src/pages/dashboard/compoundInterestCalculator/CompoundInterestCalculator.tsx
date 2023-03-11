@@ -4,6 +4,11 @@ import { useState } from "react"
 const CompoundInterestCalculator = () => {
   const [cI, setCI] = useState('0');
 
+  /**
+   * when the form is submitted, this function recieves all the values from the form
+   * it calculates the new principal by factoring in the values set by user
+   * @param values map of values submitted in the form
+   */
   const onFinish = (values: any) => {
     if (!!values.value && !!values.interest && !!values.term) {
       const value = parseInt(values.value);

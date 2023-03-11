@@ -6,9 +6,12 @@ import { message } from "antd";
 
 const CatFactsPage = () => {
   const [messageApi, messageContext] = message.useMessage();
-
   const [facts, setFacts] = useState<string[]>([]);
 
+  /**
+   * Fetch all facts from the cat fact API
+   * Set all the facts into `facts` state variable
+   */
   useEffect(() => {
     Axios.get('https://cat-fact.herokuapp.com/facts')
       .then((response) => {

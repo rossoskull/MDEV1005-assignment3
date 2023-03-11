@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import * as S from "../../../styles";
 import { getAllUsers } from "../../../services/firestore";
 import { Table, message } from "antd";
 
@@ -11,10 +10,16 @@ const UsersList = () => {
     name: string;
   }[]>([]);
 
+  /**
+   * This effect calls the `fetchData` method on this component's first render
+   */
   useEffect(() => {
     fetchData();
   }, []);
 
+  /**
+   * This method gets a list of all users registered on this website from firestore
+   */
   const fetchData = async () => {
     try {
       const allUsers = await getAllUsers();

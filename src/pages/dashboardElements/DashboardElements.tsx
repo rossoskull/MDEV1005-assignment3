@@ -6,7 +6,7 @@ import ProfileInformation from "../dashboard/profileInformation/ProfileInformati
 import UsersList from "../dashboard/usersList/UsersList";
 import Calendar from "../dashboard/calendar/Calendar";
 import * as S from "../../styles";
-import RandomQuoteGenerator from "../dashboard/paletteGenerator/PaletteGenerator";
+import RandomQuoteGenerator from "../dashboard/randomQuoteGenerator/RandomQuoteGenerator";
 
 const DashboardElements = () => {
   return (

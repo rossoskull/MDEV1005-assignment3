@@ -11,6 +11,12 @@ const Login = () => {
 
   if (isUserLoggedIn) return <Navigate to="/dashboard" />
 
+  /**
+   * this function is called once the form is submitted
+   * it takes the email and password submitted by the user
+   * and logs the user in if the details are correct
+   * @param values map of the values submitted by the form
+   */
   const handleFormSubmit = async (values: {
     email: string;
     password: string;

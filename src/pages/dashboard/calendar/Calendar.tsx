@@ -34,6 +34,11 @@ const Calendar = () => {
     month: string;
   }>();
 
+  /**
+   * This effect gets the current date from user's computer
+   * it populates data like date, current day and month names
+   * and stores them inside `date`, `day` and `month` state variables
+   */
   useEffect(() => {
     const date = new Date();
 

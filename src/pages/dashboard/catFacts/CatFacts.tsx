@@ -7,6 +7,11 @@ const CatFacts = () => {
   const [fact, setFact] = useState('');
   const [messageApi, messageContext] = message.useMessage();
 
+  /**
+   * Fetch all facts from the cat fact API
+   * Select one of the facts randomly from this list
+   * Set that fact into the `fact` state variable
+   */
   useEffect(() => {
     Axios.get('https://cat-fact.herokuapp.com/facts')
       .then((response) => {

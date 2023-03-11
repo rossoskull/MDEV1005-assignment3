@@ -10,6 +10,12 @@ const Register = () => {
   const { isUserLoggedIn, createUser } = useAuth();
   const [messageApi, messageContext] = message.useMessage();
 
+  /**
+   * this function is called once the form is submitted
+   * it takes the name, email and password submitted by the user
+   * and registers if the details are correct
+   * @param values map of the values submitted by the form
+   */
   const handleFormSubmit = async (values: {
     name: string;
     email: string;
