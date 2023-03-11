@@ -38,6 +38,11 @@ export const WidgetCard = styled.div`
   border-radius: 8px;
   padding: 20px;
   height: 100%;
+  transition: .15s box-shadow;
+
+  &:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, .15);
+  }
 `;
 
 export const WidgetTitle = styled.h2`
@@ -66,4 +71,21 @@ export const PageSubtitle = styled.h3`
   font-size: 20px;
   font-weight: 500;
   color: #aaa;
+`;
+
+export const QuoteContent = styled.p`
+  font-family: cursive, serif;
+  font-size: 18px;
+  color: #444;
+  font-weight: bold;
+  letter-spacing: .4px;
+`;
+
+export const QuoteAuthor = styled.p`
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .7px;
+  color: #888;
 `;
