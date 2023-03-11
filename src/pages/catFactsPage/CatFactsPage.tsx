@@ -16,7 +16,6 @@ const CatFactsPage = () => {
         setFacts(facts);
       })
       .catch((error) => {
-        console.log(error);
         messageApi.open({
           type: 'error',
           content: 'Could not load cat facts'

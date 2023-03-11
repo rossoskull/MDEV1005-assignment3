@@ -33,14 +33,22 @@ export const getUserDetails = async (email: string): Promise<{
   throw new Error('No such user exists');
 }
 
-export const getAllUsers = () => {
+export const getAllUsers = (): Promise<{
+  key: string;
+  email: string;
+  name: string;
+}[]> => {
   return new Promise(async (resolve, reject) => {
     try {
       const customDoc = collection(store, 'users');
 
       const docsRef = await getDocs(customDoc);
 
-      resolve(docsRef.docs);
+      resolve(docsRef.docs.map((d) => ({
+        key: d.id,
+        email: d.id,
+        name: d.data().name
+      })));
     } catch (error) {
       reject(error);
     }

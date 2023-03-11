@@ -4,6 +4,7 @@ import CatFacts from "../dashboard/catFacts/CatFacts";
 import CompoundInterestCalculator from "../dashboard/compoundInterestCalculator/CompoundInterestCalculator";
 import ProfileInformation from "../dashboard/profileInformation/ProfileInformation";
 import * as S from "../../styles";
+import UsersList from "../dashboard/usersList/UsersList";
 
 const DashboardElements = () => {
   return (
@@ -22,6 +23,9 @@ const DashboardElements = () => {
           <S.WidgetTitle>Compound Interest Calculator</S.WidgetTitle>
           <CompoundInterestCalculator />
         </S.WidgetCard>
+      </Col>
+      <Col span={8}>
+        <UsersList />
       </Col>
     </Row>
   );
