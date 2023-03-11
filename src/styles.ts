@@ -56,3 +56,14 @@ export const FactContent = styled.p`
   color: black;
   margin: 8px 0px 0px;
 `;
+
+export const PageTitle = styled.h2`
+  font-size: 32px;
+  font-weight: 500;
+`;
+
+export const PageSubtitle = styled.h3`
+  font-size: 20px;
+  font-weight: 500;
+  color: #aaa;
+`;
