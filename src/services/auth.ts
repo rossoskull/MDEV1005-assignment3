@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { auth } from "./firebase";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { addUserDetails, getUserDetails } from './firestore';
@@ -12,6 +12,21 @@ const useAuth = () => {
   onAuthStateChanged(auth, (user) => {
     setUserData(user);
   });
+
+  const fetchUserDetails = async () => {
+    try {
+      if (!!userData && !!userData.email) {
+        const details = await getUserDetails(userData.email);
+        setUserInfo(details);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchUserDetails();
+  }, [userData])
 
   // login
   const loginUser = useCallback(async (email: string, password: string) => {
