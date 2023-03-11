@@ -28,11 +28,9 @@ const UsersList = () => {
   }
 
   return (
-    <S.WidgetCard>
+    <>
       {messageContext}
-      <S.WidgetTitle>All Registered Users</S.WidgetTitle>
-      <p>This is a list of all registered users on this app:</p>
-      <Table dataSource={users} columns={[
+      <Table pagination={false} dataSource={users} columns={[
         {
           key: 'email',
           title: 'Email',
@@ -44,7 +42,7 @@ const UsersList = () => {
           dataIndex: 'name'
         }
       ]} />
-    </S.WidgetCard>
+    </>
   );
 }
 

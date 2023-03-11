@@ -30,7 +30,7 @@ const Dashboard = () => {
     {
       key: '4',
       label: (
-        <Link to="/dashboard/tasks">Task Manager</Link>
+        <Link to="/dashboard/view-users">View Users</Link>
       )
     },
     {

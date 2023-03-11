@@ -25,7 +25,11 @@ const DashboardElements = () => {
         </S.WidgetCard>
       </Col>
       <Col span={8}>
-        <UsersList />
+        <S.WidgetCard>
+          <S.WidgetTitle>All Registered Users</S.WidgetTitle>
+          <p>This is a list of all registered users on this app:</p>
+          <UsersList />
+        </S.WidgetCard>
       </Col>
     </Row>
   );

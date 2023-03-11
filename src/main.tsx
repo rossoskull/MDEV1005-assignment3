@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import DashboardElements from './pages/dashboardElements/DashboardElements';
 import CatFactsPage from './pages/catFactsPage/CatFactsPage';
 import CompoundInterestCalculatorPage from './pages/compoundInterestCalculatorPage/CompoundInterestCalculatorPage';
+import UsersListPage from './pages/usersListPage/UsersListPage';
 
 import 'antd/dist/reset.css';
 
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path="/dashboard" element={<DashboardElements />} />
           <Route path="/dashboard/interest-calculator" element={<CompoundInterestCalculatorPage />} />
           <Route path="/dashboard/cat-facts" element={<CatFactsPage />} />
+          <Route path="/dashboard/view-users" element={<UsersListPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
