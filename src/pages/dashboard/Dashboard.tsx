@@ -7,6 +7,7 @@ import * as S from "../../styles";
 import ProfileInformation from "./profileInformation/ProfileInformation";
 import CatFacts from "./catFacts/CatFacts";
 import BarrieWeather from "./barrieWeather/BarrieWeather";
+import CompoundInterestCalculator from "./compoundInterestCalculator/CompoundInterestCalculator";
 
 const Dashboard = () => {
   const { isUserLoggedIn, logoutUser } = useAuth();
@@ -47,6 +48,12 @@ const Dashboard = () => {
             </Col>
             <Col span={12}>
               <BarrieWeather />
+            </Col>
+            <Col span={12}>
+              <S.WidgetCard>
+                <S.WidgetTitle>Compound Interest Calculator</S.WidgetTitle>
+                <CompoundInterestCalculator />
+              </S.WidgetCard>
             </Col>
           </Row>
         </Content>
